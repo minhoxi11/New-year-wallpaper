@@ -12,8 +12,18 @@ const CONFIG = {
     totalDays: 365
 };
 
+function getVietnamTime() {
+    // Vietnam timezone: UTC+7
+    const options = { timeZone: 'Asia/Ho_Chi_Minh' };
+    const now = new Date();
+
+    // Get Vietnam date/time components
+    const vnDate = new Date(now.toLocaleString('en-US', options));
+    return vnDate;
+}
+
 function getYearProgress() {
-    const today = new Date();
+    const today = getVietnamTime();
     const year = today.getFullYear();
     const yearStart = new Date(year, 0, 1);
     const daysPassed = Math.floor((today - yearStart) / (1000 * 60 * 60 * 24)) + 1;
@@ -72,8 +82,8 @@ function generateWallpaper() {
         ctx.fill();
     }
 
-    // Draw clock
-    const now = new Date();
+    // Draw clock (Vietnam time)
+    const now = getVietnamTime();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const timeStr = `${hours}:${minutes}`;
