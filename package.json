@@ -1,0 +1,12 @@
+{
+  "name": "year-progress-wallpaper",
+  "version": "1.0.0",
+  "description": "Auto-updating year progress wallpaper for Samsung S22+",
+  "main": "generate.js",
+  "scripts": {
+    "generate": "node generate.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2"
+  }
+}
